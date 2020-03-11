@@ -1,0 +1,32 @@
+body{
+    line-height: 2em;
+}
+.main{
+    width: 360px;
+    margin: 20px auto 0;
+    padding: 20px 20px;
+    position: relative;
+}
+#pwd{
+    width:230px;
+    height:30px;
+    margin:0;
+}
+.pwd-text{
+    width:180px;
+    height:30px;
+    border:none;
+    position:relative;
+    left:50px;
+    top:-66px;
+}
+#eye{
+    width: 40px;
+    height: 30px;
+    background-size: contain;
+    position: relative;
+    top: -33px;
+    left: 241px;
+    z-index: 9;
+    background-image:url(https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=474243991,3615038954&fm=15&gp=0.jpg)
+}
