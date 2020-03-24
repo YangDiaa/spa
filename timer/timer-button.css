@@ -1,0 +1,9 @@
+.timer-button{
+    height:40px;
+    width:120px;
+    margin: 50px auto;
+    text-align:center
+}
+#time{
+    width:50px;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定时器按钮组件测试</title>
+    <link rel="stylesheet" href="./timer-button.css">
+</head>
+<body>
+    <label>禁用时长</label>
+    <input id="time" value="6">
+    <label>秒</label>
+    <br>
+    <input id="add" class="timer-button" type="button" value="添加定时器按钮">
+    <hr>
+    <div id="main"></div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>    
+    <script src="./timer-button.js"></script>
+    <script>
+        $(function(){
+            var $btnAdd = $('#add');
+            $btnAdd.click(function(){
+                $timerButton.show({
+                    num:$('#time').val(),
+                    title:'发送验证码',
+                    onClick:function(){
+                        alert("点击了定时器按钮")
+                    }
+                });
+            })
+        })
+        
+    </script>
+</body>
+</html>
