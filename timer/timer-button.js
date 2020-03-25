@@ -1,15 +1,17 @@
-var $timerButton =(function(){
-    var $btn = $('<input class="timer-button" type="button" disabled/>'),
-        cfg = {
+//构造函数
+function TimerButton(){
+    var $btn = $('<input class="timer-button" type="button" disabled/>');
+    var cfg = {
             container:'body',
             num:7,
-            title:'同意'
+            title:'同意',
+            onClick: null
         },
         timer,
         num;
-    function show(conf){
+    this.show = function(conf){
         //1.DOM绘制
-        if (timer) clearInterval(timer);
+        // if (timer) clearInterval(timer);
         $(cfg.container).append($btn);
         $.extend(cfg,conf);
         num = cfg.num;
@@ -19,18 +21,49 @@ var $timerButton =(function(){
             num--;
             if(num === 0){
                 clearInterval(timer);
-                $btn.val('同意');
+                $btn.val(cfg.title);
                 $btn.removeAttr('disabled');//去掉禁用属性
             }else{
                 $btn.val(cfg.title+'('+num+'s)');
             }
         },1000);
         //2.enent bind
+        $btn.click(cfg.onClick);
+    }
+}
+
+var $timerButton =(function(){
+    var cfg = {
+            container:'body',
+            num:7,
+            title:'同意',
+            onClick: null
+        },
+        timer,
+        num;
+    function show(conf){
+        var $btn = $('<input class="timer-button" type="button" disabled/>');
+        //1.DOM绘制
+        // if (timer) clearInterval(timer);
+        $(cfg.container).append($btn);
+        $.extend(cfg,conf);
+        num = cfg.num;
+        $btn.val(cfg.title+'('+num+'s)');
+
+        timer = setInterval(function(){
+            num--;
+            if(num === 0){
+                clearInterval(timer);
+                $btn.val(cfg.title);
+                $btn.removeAttr('disabled');//去掉禁用属性
+            }else{
+                $btn.val(cfg.title+'('+num+'s)');
+            }
+        },1000);
+        //2.enent bind
+        $btn.click(cfg.onClick);
     }
 
-    $btn.click(function(){
-        cfg.onClick();
-    });
     return{
         show:show
     }
