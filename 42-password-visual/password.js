@@ -1,10 +1,10 @@
 var $pwdVisual = (function() {
-    var $pwd = $('<input class="pwd" type="password">'),
+    function show(conf){
+      var $pwd = $('<input class="pwd" type="password">'),
         $text = $('<input class="text" type="text">'),
         $eye = $('<div class="eye"></div>'),
-        $div = $('<div>密码：</div>');
-
-    function show(conf){
+        $div = $('<div class="box">密码：</div>');
+      
       $div.append($pwd);
       $div.append($eye);
       $div.append($text);
@@ -21,11 +21,11 @@ var $pwdVisual = (function() {
       $eye.mouseout(function(){
         $text.css('z-index', '-10');
       });
-    } 
 
-    getPwd = function() {
-      return $text.val();
-    };
+      getPwd = function() {
+        return $text.val();
+      };
+    } 
 
     return{
       show:show
